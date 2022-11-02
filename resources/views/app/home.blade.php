@@ -35,8 +35,37 @@
         <a href="">
           <i class="las la-shopping-cart la-2x"></i>
         </a>
+        @auth
+        <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="{{ asset('images/food.jpg') }}" alt="User dropdown">
+
+        <!-- Dropdown menu -->
+        <div id="userDropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+          <div class="py-3 px-4 text-sm text-gray-900 dark:text-white">
+            <div>{{ auth()->user()->name }}</div>
+            <div class="font-medium truncate">{{ auth()->user()->email }}</div>
+          </div>
+          <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
+            <li>
+              <a href="{{ route('dashboard') }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+            </li>
+            <li>
+              <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Daftarkan Dapur</a>
+            </li>
+            <li>
+              <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
+            </li>
+          </ul>
+          <div class="py-1">
+            <form action="{{ route('logout') }}" method="post">
+              @csrf
+              <button type="submit" class="block w-full text-left py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</button>
+            </form>
+          </div>
+        </div>
+        @else
         <a href="{{ route('login') }}" class="px-5 py-1 border-blue-500 border-2 rounded-lg">Login</a>
         <a href="{{ route('register') }}" class="px-5 py-1.5 bg-blue-500 rounded-lg text-white">Register</a>
+        @endauth
       </div>
     </nav>
 
@@ -89,8 +118,7 @@
       <h2 class="text-2xl font-bold mt-10 mb-5">Makanan</h2>
 
       <div class="grid grid-cols-4 gap-5">
-        @for ($i = 0; $i < 10; $i++)
-        <div class="flex-1 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        @for ($i = 0; $i < 10; $i++) <div class="flex-1 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <img class="rounded-t-lg" src="{{ asset('images/fff.png') }}" alt="" />
           </a>
@@ -106,10 +134,10 @@
               </svg>
             </a>
           </div>
-        </div>
-        @endfor
       </div>
-    </main>
+      @endfor
+  </div>
+  </main>
   </div>
   <footer class="bg-blue-500 py-2 flex justify-center items-center">
     <p class="text-white">Makerindo &copy; 2022</p>
