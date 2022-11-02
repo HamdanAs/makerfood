@@ -23,6 +23,12 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
+    public function createKitchen()
+    {
+        return view('auth.register-kitchen');
+    }
+
+
     /**
      * Handle an incoming registration request.
      *
