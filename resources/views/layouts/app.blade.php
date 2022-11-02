@@ -26,10 +26,7 @@
     <div class="border-l-2 border-gray-300 w-full">
       <header class="bg-white">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <div class="relative">
-            <input type="text" class="border-0 bg-gray-100 rounded-3xl w-[300px] pl-12" placeholder="search product...">
-            <i class="las la-search la-lg absolute top-[30%] left-[15px] text-gray-400"></i>
-          </div>
+          {{ $header }}
         </div>
       </header>
 

@@ -1,4 +1,8 @@
 <x-app-layout>
+  <x-slot name="header">
+    <h1 class="header">Dashboard</h1>
+  </x-slot>
+
   <div class="">
     <div class="mx-auto sm:px-6 lg:px-4">
       <div class="bg-white overflow-hidden sm:rounded-lg">

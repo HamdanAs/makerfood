@@ -4,6 +4,10 @@
 
 @layer components {
     .active {
-        @apply bg-gray-100;
+        @apply bg-white;
+    }
+
+    .header {
+        @apply text-2xl font-bold px-2;
     }
 }
