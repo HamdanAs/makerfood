@@ -57,4 +57,20 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function storeKitchen(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255']
+        ]);
+
+        Auth::user()->kitchen()->create([
+            'name' => $request->name,
+            'address' => $request->address
+        ]);
+
+        return redirect()->route('dashboard');
+    }
+
 }

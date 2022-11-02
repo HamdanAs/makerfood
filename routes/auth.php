@@ -36,6 +36,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('register-kitchen', [RegisteredUserController::class, 'createKitchen'])->name('create-kitchen');
+    Route::post('register-kitchen', [RegisteredUserController::class, 'storeKitchen'])->name('store-kitchen');
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
 
