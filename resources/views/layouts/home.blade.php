@@ -53,7 +53,7 @@
               </div>
             </div>
             @empty
-            <p>Belum ada barang.</p>
+            <p class="px-5 pb-3">Belum ada barang.</p>
             @endforelse
           </div>
         </div>

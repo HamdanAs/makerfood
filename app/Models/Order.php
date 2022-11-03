@@ -7,24 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Kitchen extends Model
+class Order extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function user(): BelongsTo
+    public function customer(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'customer_id');
     }
 
-    public function products(): HasMany
+    public function kitchen(): BelongsTo
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Kitchen::class);
     }
 
-    public function orders(): HasMany
+    public function details(): HasMany
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(OrderDetail::class);
     }
 }
