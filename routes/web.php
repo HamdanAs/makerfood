@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -22,6 +23,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('product', ProductController::class);
+
+    Route::get('cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('cart', [CartController::class, 'store'])->name('cart.store');
+    Route::get('checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 });
 
 require __DIR__ . '/auth.php';
