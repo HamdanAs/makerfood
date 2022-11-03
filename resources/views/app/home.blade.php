@@ -11,6 +11,7 @@
   <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+  <script src="https://kit.fontawesome.com/8a50216966.js" crossorigin="anonymous"></script>
   <!-- Styles -->
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -118,26 +119,45 @@
       <h2 class="text-2xl font-bold mt-10 mb-5">Makanan</h2>
 
       <div class="grid grid-cols-4 gap-5">
-        @for ($i = 0; $i < 10; $i++) <div class="flex-1 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        @forelse ($products as $product)
+        <div class="flex-1 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
-            <img class="rounded-t-lg" src="{{ asset('images/fff.png') }}" alt="" />
+            <img class="rounded-t-lg" src="{{ asset('images/food.jpg') }}" alt="" />
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $product->name }}</h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-            <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Read more
-              <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
+            <div class="flex gap-5">
+              <div class="flex items-center gap-1 mb-3">
+              <i class="fa-solid fa-map-location"></i>
+                <p class="font-normal text-gray-700 dark:text-gray-400">{{ $product->kitchen->name }}</p>
+              </div>
+              <div class="flex items-center gap-1 mb-3">
+                <i class="fa-solid fa-money-bills"></i>
+                <p class="font-normal text-gray-700 dark:text-gray-400">{{ format_rupiah($product->price) }}</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+
+              <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <i class="fa-solid fa-cart-plus"></i>
+              </a>
+
+            </div>
           </div>
+        </div>
+        @empty
+
+        @endforelse
       </div>
-      @endfor
-  </div>
-  </main>
+    </main>
   </div>
   <footer class="bg-blue-500 py-2 flex justify-center items-center">
     <p class="text-white">Makerindo &copy; 2022</p>

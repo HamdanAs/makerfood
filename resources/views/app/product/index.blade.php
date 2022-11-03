@@ -20,7 +20,7 @@
           </div>
 
           <div>
-            <a href="" class="px-5 py-2 bg-blue-500 rounded-md text-white">Tambah</a>
+            <a href="{{ route('product.create') }}" class="px-5 py-2 bg-blue-500 rounded-md text-white">Tambah</a>
           </div>
         </div>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -42,12 +42,13 @@
               </tr>
             </thead>
             <tbody>
+              @forelse ($products as $product)
               <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white flex gap-2">
                   <img src="{{ asset('images/food.jpg') }}" class="w-12 h-12 rounded-md object-cover" alt="">
                   <div>
-                    <span class="font-bold text-md block">Apple MacBook Pro 17"</span>
-                    <span class="text-gray-600">Rp. 15.000</span>
+                    <span class="font-bold text-md block">{{ $product->name }}</span>
+                    <span class="text-gray-600">{{ format_rupiah($product->price) }}</span>
                   </div>
                 </th>
                 <td class="py-4 px-6">
@@ -64,50 +65,9 @@
                   <a href="#" class="font-medium bg-blue-600 px-3 py-1 text-white rounded-md">Edit</a>
                 </td>
               </tr>
-              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white flex gap-2">
-                  <img src="{{ asset('images/food.jpg') }}" class="w-12 h-12 rounded-md object-cover" alt="">
-                  <div>
-                    <span class="font-bold text-md block">Apple MacBook Pro 17"</span>
-                    <span class="text-gray-600">Rp. 15.000</span>
-                  </div>
-                </th>
-                <td class="py-4 px-6">
-                  Makanan
-                </td>
-                <td class="py-4 px-6">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </td>
-                <td class="py-4 px-6">
-                  <a href="#" class="font-medium bg-blue-600 px-3 py-1 text-white rounded-md">Edit</a>
-                </td>
-              </tr>
-              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white flex gap-2">
-                  <img src="{{ asset('images/food.jpg') }}" class="w-12 h-12 rounded-md object-cover" alt="">
-                  <div>
-                    <span class="font-bold text-md block">Apple MacBook Pro 17"</span>
-                    <span class="text-gray-600">Rp. 15.000</span>
-                  </div>
-                </th>
-                <td class="py-4 px-6">
-                  Makanan
-                </td>
-                <td class="py-4 px-6">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </td>
-                <td class="py-4 px-6">
-                  <a href="#" class="font-medium bg-blue-600 px-3 py-1 text-white rounded-md">Edit</a>
-                </td>
-              </tr>
+              @empty
+
+              @endforelse
             </tbody>
           </table>
         </div>
