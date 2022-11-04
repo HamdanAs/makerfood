@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('order-history', [OrderController::class, 'history'])->name('order.history');
     Route::post('order', [OrderController::class, 'store'])->name('order.store');
+
+    Route::get('transaction', [TransactionController::class, 'index'])->name('transaction.index');
+    Route::get('transaction/{order}', [TransactionController::class, 'show'])->name('transaction.show');
+    Route::patch('transaction/{order}/process', [TransactionController::class, 'process'])->name('transaction.process');
+    Route::patch('transaction/{order}/send', [TransactionController::class, 'send'])->name('transaction.send');
+    Route::patch('transaction/{order}/done', [TransactionController::class, 'done'])->name('transaction.done');
+    Route::patch('transaction/{order}/submit', [TransactionController::class, 'submit'])->name('transaction.submit');
+    Route::patch('transaction/{order}/decline', [TransactionController::class, 'decline'])->name('transaction.decline');
 });
 
 require __DIR__ . '/auth.php';

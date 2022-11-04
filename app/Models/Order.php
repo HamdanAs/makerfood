@@ -31,10 +31,20 @@ class Order extends Model
 
     public function statusText(): Attribute
     {
-        return Attribute::get(function ($value, $attributes){
-            switch($attributes['status']) {
+        return Attribute::get(function ($value, $attributes) {
+            switch ($attributes['status']) {
                 case 1:
                     return "Menunggu Konfirmasi";
+                case 2:
+                    return "Sudah Dikonfirmasi";
+                case 3:
+                    return "Sedang Diantar";
+                case 4:
+                    return "Siap Diambil";
+                case 5:
+                    return "Selesai";
+                case 6:
+                    return "Pesanan Batal";
                 default:
                     return "Status Tidak Diketahui";
             }
@@ -44,7 +54,7 @@ class Order extends Model
     public function paymentMethodText(): Attribute
     {
         return Attribute::get(function ($value, $attributes) {
-            switch ($attributes['payment_method']){
+            switch ($attributes['payment_method']) {
                 case 1:
                     return "Cash On Delivery";
                 case 2:
@@ -58,7 +68,7 @@ class Order extends Model
     public function deliveryMethodText(): Attribute
     {
         return Attribute::get(function ($value, $attributes) {
-            switch ($attributes['delivery_method']){
+            switch ($attributes['delivery_method']) {
                 case 1:
                     return "Kirim";
                 case 2:
@@ -66,6 +76,28 @@ class Order extends Model
                 default:
                     return "Invalid";
             }
+        });
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function (Order $order) {
+            //get last record
+            $record = Order::latest()->first();
+
+            if ($record == null || $record == "") {
+                if (date('l', strtotime(date('Y-01-01')))) {
+                    $nextInvoiceNumber = 'Pesanan/' . date('Y') . '/00001';
+                }
+            } else {
+                $expNum = explode('/', $record->ref);
+                $number = ($expNum[2] + 1);
+                $nextInvoiceNumber = 'Pesanan' . '/' .$expNum[1] . '/' . str_pad($number, 5, '0', STR_PAD_LEFT);
+            }
+
+            $order->ref = $nextInvoiceNumber;
         });
     }
 }

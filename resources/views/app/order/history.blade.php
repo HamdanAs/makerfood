@@ -4,7 +4,7 @@
     @forelse ($orders as $order)
     <div class="bg-white shadow-md rounded-md mb-3">
       <div class="py-3 px-5 flex justify-between items-center">
-        <h2 class="font-bold">Pesanan#01234</h2>
+        <h2 class="font-bold">{{ $order->ref }}</h2>
 
         <span class="py-1 px-3 bg-green-500 text-sm text-white rounded-md">{{ $order->status_text }}</span>
       </div>
