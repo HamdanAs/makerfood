@@ -61,7 +61,7 @@
                     <form action="{{ route('transaction.done', $order->id) }}" method="post">
                       @csrf
                       @method('patch')
-                      <button type="submit" class="px-5 py-1 bg-blue-500 text-white rounded-md shadow">Selesai</button>
+                      <button disabled type="submit" class="px-5 py-1 bg-blue-500 text-white rounded-md shadow">Menunggu Konfirmasi Pemesan</button>
                     </form>
                     @break
                   @case(4)
@@ -75,7 +75,7 @@
                     <form action="{{ route('transaction.process', $order->id) }}" method="post">
                       @csrf
                       @method('patch')
-                      <button type="submit" class="px-5 py-1 bg-blue-500 text-white rounded-md shadow">Pesananan Telah Selesai</button>
+                      <button disabled type="submit" class="px-5 py-1 bg-blue-500 text-white rounded-md shadow">Pesananan Telah Selesai</button>
                     </form>
                     @break
                   @default

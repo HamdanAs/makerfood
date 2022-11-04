@@ -47,7 +47,13 @@
         <div class="flex justify-between items-center">
           <h3 class="font-bold">Total : {{ format_rupiah($order->total) }}</h3>
 
-          <!-- <a href="" class="px-5 py-1 bg-blue-500 text-white rounded-md">Konfimasi Pesanan</a> -->
+          @if ($order->status == 3)
+          <form action="{{ route('transaction.done', $order->id) }}" method="POST">
+            @csrf
+            @method('patch')
+            <button type="submit" class="px-5 py-1 bg-blue-500 text-white rounded-md">Konfimasi Penerimaan</button>
+          </form>
+          @endif
         </div>
       </div>
     </div>
