@@ -4,7 +4,7 @@
 
 @layer components {
     .active {
-        @apply bg-white;
+        @apply text-sky-900 font-bold;
     }
 
     .header {

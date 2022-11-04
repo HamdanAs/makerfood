@@ -3,7 +3,8 @@
     <h1 class="header">Produk</h1>
   </x-slot>
 
-  <div class="mx-auto sm:px-6 lg:px-4">
+  <div class="mx-auto sm:px-6 lg:px-4 pt-7">
+    <h1 class="font-bold text-xl mb-3">Produk</h1>
     <div class="bg-white overflow-hidden sm:rounded-lg">
       <div class="p-6 bg-white">
         <div class="flex justify-between items-center">

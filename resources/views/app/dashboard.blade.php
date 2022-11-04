@@ -4,12 +4,12 @@
   </x-slot>
 
   <div class="">
-    <div class="mx-auto sm:px-6 lg:px-4">
-      <div class="bg-white overflow-hidden sm:rounded-lg">
-        <div class="p-6 bg-white">
-          <h1 class="text-xl font-bold text-gray-700">Overview</h1>
+    <div class="mx-auto px-4">
+      <div class="overflow-hidden sm:rounded-lg">
+        <div class="p-6">
+          <h1 class="text-xl font-bold text-gray-700 mb-3">Overview</h1>
           <div class="grid grid-cols-4 w-full gap-5">
-            <div class="p-3 border-2 border-gray-400 rounded-md">
+            <div class="p-3 shadow-md rounded-md bg-white">
               <div class="flex justify-between items-center">
                 <i class="fa-solid fa-bag-shopping fa-xl" style="color: tomato;"></i>
                 <span class="text-green-500">+24%</span>
@@ -17,7 +17,7 @@
               <h3 class="text-xl font-bold text-gray-700 mt-3">20 Barang</h3>
               <span class="text-gray-500 font-bold">Total Barang</span>
             </div>
-            <div class="p-3 border-2 border-gray-400 rounded-md">
+            <div class="p-3 shadow-md bg-white rounded-md">
               <div class="flex justify-between items-center">
                 <i class="fa-solid fa-cart-shopping fa-xl" style="color: purple;"></i>
                 <span class="text-green-500">+24%</span>
@@ -25,7 +25,7 @@
               <h3 class="text-xl font-bold text-gray-700 mt-3">20 Transaksi</h3>
               <span class="text-gray-500 font-bold">Total Transaksi</span>
             </div>
-            <div class="p-3 border-2 border-gray-400 rounded-md">
+            <div class="p-3 shadow-md bg-white rounded-md">
               <div class="flex justify-between items-center">
                 <i class="fa-solid fa-rupiah-sign fa-xl" style="color: green;"></i>
                 <span class="text-green-500">+24%</span>
@@ -33,7 +33,7 @@
               <h3 class="text-xl font-bold text-gray-700 mt-3">Rp. 6.000.000</h3>
               <span class="text-gray-500 font-bold">Total Pendapatan</span>
             </div>
-            <div class="p-3 border-2 border-gray-400 rounded-md">
+            <div class="p-3 shadow-md bg-white rounded-md">
               <div class="flex justify-between items-center">
                 <i class="fa-solid fa-money-bill-wave fa-xl" style="color: red;"></i>
                 <span class="text-green-500">+24%</span>
@@ -43,7 +43,7 @@
             </div>
           </div>
 
-          <div class="p-3 border-2 border-gray-400 rounded-md mt-10">
+          <div class="p-3 shadow-md bg-white rounded-md mt-5">
             <div class="flex items-center gap-5 mb-5">
               <a href="" class="text-xl font-bold text-gray-700">Pendapatan</a>
               <a href="" class="text-xl font-bold text-gray-300">Pengeluaran</a>
