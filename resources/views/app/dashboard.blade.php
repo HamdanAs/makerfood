@@ -14,7 +14,7 @@
                 <i class="fa-solid fa-bag-shopping fa-xl" style="color: tomato;"></i>
                 <span class="text-green-500">+24%</span>
               </div>
-              <h3 class="text-xl font-bold text-gray-700 mt-3">20 Barang</h3>
+              <h3 class="text-xl font-bold text-gray-700 mt-3">{{ $item_count }} Barang</h3>
               <span class="text-gray-500 font-bold">Total Barang</span>
             </div>
             <div class="p-3 shadow-md bg-white rounded-md">
@@ -22,7 +22,7 @@
                 <i class="fa-solid fa-cart-shopping fa-xl" style="color: purple;"></i>
                 <span class="text-green-500">+24%</span>
               </div>
-              <h3 class="text-xl font-bold text-gray-700 mt-3">20 Transaksi</h3>
+              <h3 class="text-xl font-bold text-gray-700 mt-3">{{ $transaction_count }} Transaksi</h3>
               <span class="text-gray-500 font-bold">Total Transaksi</span>
             </div>
             <div class="p-3 shadow-md bg-white rounded-md">
@@ -30,7 +30,7 @@
                 <i class="fa-solid fa-rupiah-sign fa-xl" style="color: green;"></i>
                 <span class="text-green-500">+24%</span>
               </div>
-              <h3 class="text-xl font-bold text-gray-700 mt-3">Rp. 6.000.000</h3>
+              <h3 class="text-xl font-bold text-gray-700 mt-3">{{ format_rupiah($transaction_sum) }}</h3>
               <span class="text-gray-500 font-bold">Total Pendapatan</span>
             </div>
             <div class="p-3 shadow-md bg-white rounded-md">
