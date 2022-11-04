@@ -21,6 +21,12 @@
         </a>
       </li>
       <li>
+        <a href="{{ route('profile.index') }}" class="flex items-center p-2 text-base font-normal text-gray-900 dark:text-white hover:bg-white dark:hover:bg-gray-700 {{ request()->is('profile*') ? 'border-r-2 border-sky-900' : 'text-gray-400' }}">
+          <i class="las la-user la-2x text-gray-400 {{ request()->is('profile*') ? 'text-sky-900' : 'text-gray-400' }}"></i>
+          <span class="ml-3 {{ request()->is('profile*') ? 'text-sky-900 font-bold' : 'text-gray-400' }}">Profile</span>
+        </a>
+      </li>
+      <li>
         <form action="{{ route('logout') }}" method="POST" class="w-full">
           @csrf
           <button type="submit" class="w-full text-left flex items-center p-2 text-base font-normal text-gray-900 dark:text-white hover:bg-white dark:hover:bg-gray-700">

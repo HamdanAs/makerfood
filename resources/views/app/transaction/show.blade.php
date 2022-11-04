@@ -3,11 +3,11 @@
     <h1 class="header">Detail Transaksi</h1>
   </x-slot>
 
-  <div class="mx-auto sm:px-6 lg:px-4">
-    <div class="bg-white overflow-hidden sm:rounded-lg">
-      <div class="p-6 bg-white">
+  <div class="mx-auto px-10 pt-10">
+    <div class="overflow-hidden sm:rounded-lg">
+      <div class="p-6">
         <div class="flex gap-5 w-full">
-          <div class="bg-gray-100 rounded-md shadow-md w-1/3">
+          <div class="bg-white rounded-md shadow-md w-1/3">
             <div class="px-5 py-3 flex justify-between items-center">
               <span class="font-bold">{{ $order->ref }}</span>
               <span class="px-3 py-1 bg-blue-500 rounded-md text-white text-sm">{{ $order->status_text }}</span>
@@ -85,7 +85,7 @@
             </div>
           </div>
           <div class="w-1/3">
-            <div class="bg-gray-100 rounded-md shadow-md h-fit">
+            <div class="bg-white rounded-md shadow-md h-fit">
               <div class="px-5 py-3 flex justify-between items-center">
                 <span class="font-bold">Detail Pesanan</span>
               </div>
