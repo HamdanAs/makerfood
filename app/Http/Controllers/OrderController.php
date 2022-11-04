@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    public function history()
+    {
+        $orders = Order::query()
+            ->whereBelongsTo(Auth::user(), 'customer')
+            ->get();
+
+        return view('app.order.history', compact('orders'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([

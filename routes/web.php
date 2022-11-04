@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('cart', [CartController::class, 'store'])->name('cart.store');
     Route::get('checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
+    Route::get('order-history', [OrderController::class, 'history'])->name('order.history');
     Route::post('order', [OrderController::class, 'store'])->name('order.store');
 });
 

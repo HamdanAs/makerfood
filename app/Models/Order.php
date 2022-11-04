@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,5 +27,45 @@ class Order extends Model
     public function details(): HasMany
     {
         return $this->hasMany(OrderDetail::class);
+    }
+
+    public function statusText(): Attribute
+    {
+        return Attribute::get(function ($value, $attributes){
+            switch($attributes['status']) {
+                case 1:
+                    return "Menunggu Konfirmasi";
+                default:
+                    return "Status Tidak Diketahui";
+            }
+        });
+    }
+
+    public function paymentMethodText(): Attribute
+    {
+        return Attribute::get(function ($value, $attributes) {
+            switch ($attributes['payment_method']){
+                case 1:
+                    return "Cash On Delivery";
+                case 2:
+                    return "Transfer";
+                default:
+                    return "Pembayaran Invalid";
+            }
+        });
+    }
+
+    public function deliveryMethodText(): Attribute
+    {
+        return Attribute::get(function ($value, $attributes) {
+            switch ($attributes['delivery_method']){
+                case 1:
+                    return "Kirim";
+                case 2:
+                    return "Ambil";
+                default:
+                    return "Invalid";
+            }
+        });
     }
 }
