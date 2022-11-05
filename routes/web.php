@@ -42,6 +42,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('transaction/{order}/done', [TransactionController::class, 'done'])->name('transaction.done');
     Route::patch('transaction/{order}/submit', [TransactionController::class, 'submit'])->name('transaction.submit');
     Route::patch('transaction/{order}/decline', [TransactionController::class, 'decline'])->name('transaction.decline');
+
+    Route::patch('profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
+    Route::patch('profile/update-kitchen', [ProfileController::class, 'updateKitchen'])->name('profile.update-kitchen');
 });
 
 require __DIR__ . '/auth.php';
